@@ -16,13 +16,14 @@
     </ul>
   </nav>
   <div class="container">
-    <h1 class="heading">Palindrome Birthday</h1>
+    <h1 class="heading">Palindrome Birthday🍰</h1>
     <label for="date-input">Enter Birthday</label>
-    <input type="date" id="date-input">
+    <input type="date" id="date-input" >
     <span class="button">
       <button class="check">Check Now</button>
       <button class="clear">Clear</button>
     </span>
+    <p class="error"></p>
     <p class="output"></p>
     
   </div>
@@ -167,7 +168,7 @@ function dayIncrement(date){
 }
 
 var date = {
-    day:11,
+    day:2,
     month:2,
     year:2020
   };
@@ -179,6 +180,7 @@ var dateInput = document.querySelector("#date-input");
 var check = document.querySelector(".check");
 var clear = document.querySelector(".clear");
 var showDisplay = document.querySelector(".output")
+var error = document.querySelector(".error")
 
 clear.addEventListener("click", clearEventHandler);
 check.addEventListener("click", checkEventHandler);
@@ -188,11 +190,29 @@ function clearEventHandler(){
 }
 
 function checkEventHandler(){
-  if(dateInput.value != ""){
-    showDisplay.style.display = "none"
-    console.log(dateInput.value);
+if(dateInput.value != ""){
+    error.style.display = "none"
+    showDisplay.style.display = "block"
+    var dateList = dateInput.value.split("-")
+    var day = Number(dateList[2]);
+    var month = Number(dateList[1]);
+    var year = Number(dateList[0]);
+    var date ={
+      day: day,
+      month: month,
+      year : year
+    };
+    if(checkPalindromeForAllDateFormats(date)){
+    console.log("palindrome")
+    showDisplay.innerText = "Yayy!! Your Birthday is Palindrome🎉🎈✨ "
     }else{
-    showDisplay.innerText = "Please enter your birth-day"
+      var [ctr1, nextDate] = nextPalindrome(date);
+      showDisplay.innerText = `ohh ho!! The next Palindromic date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${ctr1} days😔😥`
+      console.log("Not Palindrome")
+    }
+    }else{
+    showDisplay.style.display = "none"
+    error.innerText = "Please enter your birth-day"
   }
 }
 
