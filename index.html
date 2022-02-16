@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="container">
+    <h1 class="heading">Palindrome Birthday</h1>
+    <label for="date-input">Enter Birthday</label>
+    <input type="date" id="date-input">
+    <span class="button">
+      <button class="check">Check Now</button>
+      <button class="clear">Clear</button>
+    </span>
+    <p class="output"></p>
+    
+  </div>
   
 </body>
 <script>
@@ -138,13 +149,35 @@ function dayIncrement(date){
 }
 
 var date = {
-    day:12,
+    day:11,
     month:2,
-    year:2021
+    year:2020
   };
 
 
-console.log(nextPalindrome(date));
+console.log(checkPalindromeForAllDateFormats(date));
+
+var dateInput = document.querySelector("#date-input");
+var check = document.querySelector(".check");
+var clear = document.querySelector(".clear");
+var showDisplay = document.querySelector(".output")
+
+clear.addEventListener("click", clearEventHandler);
+check.addEventListener("click", checkEventHandler);
+
+function clearEventHandler(){
+  window.location.reload();
+}
+
+function checkEventHandler(){
+  if(dateInput.value != ""){
+    showDisplay.style.display = "none"
+    console.log(dateInput.value);
+    }else{
+    showDisplay.innerText = "Please enter your birth-day"
+  }
+}
+
 
 </script>
 </html>
