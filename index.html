@@ -22,11 +22,13 @@
 
   function checkPalindrome(str){
     var reversedStr = reverse(str);
-    if(str.ignoreCase === reversedStr.ignoreCase){
+    if(str === reversedStr){
       return true;
     }
     return false;
   }
+
+  
 
   function dateToStr(date){
     var dateStr = {
@@ -49,13 +51,7 @@
     return dateStr;
   }
 
-  var date = {
-    day:1,
-    month:9,
-    year:2021
-  };
-
-  function getAllDateFormats(date){
+function getAllDateFormats(date){
     var dateStr = dateToStr(date);
     var ddmmyyyy = dateStr.day + dateStr.month + dateStr.year;
     var mmddyyyy = dateStr.month + dateStr.day + dateStr.year;
@@ -64,10 +60,28 @@
     var mmddyy = dateStr.month + dateStr.day + dateStr.year.slice(-2);
     var yymmdd = dateStr.year.slice(-2) + dateStr.month + dateStr.day;
 
-    return [ddmmyyyy, ddmmyyyy , yyyymmdd , ddmmyy , mmddyy , yymmdd];
+    return [ddmmyyyy, mmddyyyy , yyyymmdd , ddmmyy , mmddyy , yymmdd];
   }
 
-  console.log(getAllDateFormats(date));
+function checkPalindromeForAllDateFormats(date){
+  var listOfPalindromes = getAllDateFormats(date);
+  var flag = false;
+  for(var i=0;i< listOfPalindromes.length;i++){
+    if(checkPalindrome(listOfPalindromes[i])){
+      flag = true;
+      break;
+    }
+  }
+  return flag;
+}
+
+var date = {
+    day:2,
+    month:2,
+    year:2021
+  };
+
+console.log(checkPalindromeForAllDateFormats(date));
 
 </script>
 </html>
