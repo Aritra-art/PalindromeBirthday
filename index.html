@@ -75,13 +75,76 @@ function checkPalindromeForAllDateFormats(date){
   return flag;
 }
 
+function nextPalindrome(date){
+  var ctr = 0;
+  var nextDate = dayIncrement(date);
+  while(1){
+    ctr++;
+    var isPalindrome = checkPalindromeForAllDateFormats(nextDate);
+    if(isPalindrome){
+      break;
+    }
+    nextDate = dayIncrement(nextDate);
+  }
+  return [ctr, nextDate]
+}
+function isLeapYear(year){
+  if(year % 400 === 0 ){
+    return true;
+  }
+  if(year % 4 === 0 && year %100 != 0){
+    return true;
+  }else {
+    return false;
+  }
+  
+}
+
+function dayIncrement(date){
+  var day = date.day +1;
+  var month = date.month;
+  var year = date.year;
+
+  var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+  if(month === 2){
+    if(isLeapYear(year)){
+      if(day >29){
+        day =1;
+        month ++;
+      }
+    }else{
+      if(day>28){
+        day =1;
+        month++;
+      }
+    }
+  }
+  else{
+    if(day > daysInMonth[month - 1]){
+      day = 1;
+      month ++;
+    }
+  }
+  if(month > 12){
+    month = 1;
+    year ++;
+  }
+  return {
+    day : day,
+    month : month,
+    year : year
+  };
+}
+
 var date = {
-    day:2,
+    day:12,
     month:2,
     year:2021
   };
 
-console.log(checkPalindromeForAllDateFormats(date));
+
+console.log(nextPalindrome(date));
 
 </script>
 </html>
