@@ -20,7 +20,15 @@
     return reversedStr;
   }
 
-  console.log(reverse("Aritra"));
+  function checkPalindrome(str){
+    var reversedStr = reverse(str);
+    if(str.ignoreCase === reversedStr.ignoreCase){
+      return true;
+    }
+    return false;
+  }
+
+  console.log(checkPalindrome("Racecar"));
 
 </script>
 </html>
