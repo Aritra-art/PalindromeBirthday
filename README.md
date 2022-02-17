@@ -1,6 +1,6 @@
 # PalindromeBirthday | Palindromic Birthday
 
-## Check Whether your birthday in any format is Palindromic or not
+###### Check Whether your birthday in any format is Palindromic or not
 
 # Problem Statement
 
@@ -15,7 +15,7 @@
 
 The website is deployed and is hosted now
 
-[Birthday Palindrome] (https://palindrome-birth-checker.netlify.app/)
+[Palindrome Birthday](https://palindrome-birth-checker.netlify.app/)
 
 # TechStack
 
