@@ -4,18 +4,18 @@
 
 # Problem Statement
 
-1 Take the user's stock price for one stock when he bought it.
-2 Take the stocks quantity as well.
-3 Now take today's price of that Stock.
-4 Tell the Profit / Loss, the user's making -
-- In Percentage
-- In Absolute
+1.Ask the user to input his/her birth date
+2.Check if the entered birthdate is a palindrome, if yes, show a message
+3.If the entered birthdate is not a palindrome:
+
+- Find the nearest palindrome date
+- Find how many days they missed
 
 # Solution
 
 The website is deployed and is hosted now
 
-[Palindrome Birthday](https://palindrome-birth-checker.netlify.app/)
+[Palindrome Birthday](https://palindrome-birth-checker.netlify.app/)💖✨
 
 # TechStack
 
