@@ -72,6 +72,51 @@ function nextPalindrome(date) {
   }
   return [ctr, nextDate];
 }
+
+function getPreviousDate(date) {
+  var day = date.day - 1;
+  var month = date.month;
+  var year = date.year;
+
+  var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (day === 0) {
+    month--;
+    if (month === 0) {
+      month = 12;
+      day = 31;
+      year--;
+    } else if (month === 2) {
+      if (isLeapYear(year)) {
+        day = 29;
+      } else {
+        day = 28;
+      }
+    } else {
+      day = daysInMonth[month - 1];
+    }
+  }
+  return {
+    day: day,
+    month: month,
+    year: year,
+  };
+}
+
+function getPreviousPalindromeDate(date) {
+  var ctr = 0;
+  var previousDate = getPreviousDate(date);
+  while (1) {
+    ctr++;
+    var isPalindrome = checkPalindromeForAllDateFormats(previousDate);
+    if (isPalindrome) {
+      break;
+    }
+    previousDate = getPreviousDate(previousDate);
+  }
+
+  return [ctr, previousDate];
+}
 function isLeapYear(year) {
   if (year % 400 === 0) {
     return true;
@@ -169,12 +214,23 @@ function checkEventHandler() {
       }, 2000);
     } else {
       var [ctr1, nextDate] = nextPalindrome(date);
-      setTimeout(() => {
-        loader.style.display = "none";
-        showDisplay.style.display = "block";
-        showDisplay.style.color = "#374151";
-        showDisplay.innerText = `ohh ho!! The next Palindromic date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${ctr1} days 😔😥😢😩`;
-      }, 2000);
+      var [ctr2, prevDate] = getPreviousPalindromeDate(date);
+
+      if (ctr1 > ctr2) {
+        setTimeout(() => {
+          loader.style.display = "none";
+          showDisplay.style.display = "block";
+          showDisplay.style.color = "#374151";
+          showDisplay.innerText = `ohh ho!! The Previous Palindromic date was ${prevDate.day}-${prevDate.month}-${prevDate.year}. You missed it by ${ctr2} days 😔😥😢😩`;
+        }, 2000);
+      } else {
+        setTimeout(() => {
+          loader.style.display = "none";
+          showDisplay.style.display = "block";
+          showDisplay.style.color = "#374151";
+          showDisplay.innerText = `ohh ho!! The Upcomming Palindromic date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${ctr1} days 😔😥😢😩`;
+        }, 2000);
+      }
     }
   } else {
     loader.style.display = "none";
