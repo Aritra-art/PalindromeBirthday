@@ -150,7 +150,7 @@ function checkEventHandler() {
   if (dateInput.value != "") {
     loader.style.display = "flex";
     error.style.display = "none";
-    showDisplay.style.display = "block";
+    showDisplay.style.display = "none";
     var dateList = dateInput.value.split("-");
     var day = Number(dateList[2]);
     var month = Number(dateList[1]);
@@ -162,13 +162,17 @@ function checkEventHandler() {
     };
     if (checkPalindromeForAllDateFormats(date)) {
       setTimeout(() => {
+        showDisplay.style.display = "block";
         loader.style.display = "none";
+        showDisplay.style.color = "#9f1239";
         showDisplay.innerText = "Yayy!! Your Birthday is Palindrome 🎉🎈✨💖 ";
       }, 2000);
     } else {
       var [ctr1, nextDate] = nextPalindrome(date);
       setTimeout(() => {
         loader.style.display = "none";
+        showDisplay.style.display = "block";
+        showDisplay.style.color = "#374151";
         showDisplay.innerText = `ohh ho!! The next Palindromic date is ${nextDate.day}-${nextDate.month}-${nextDate.year}. You missed it by ${ctr1} days 😔😥😢😩`;
       }, 2000);
     }
