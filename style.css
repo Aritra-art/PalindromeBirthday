@@ -1,40 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
-:root{
+:root {
   --primary-color: #fb7185;
   --secondary-color: #9f1239;
-  --error-color : #dc2626;
+  --error-color: #dc2626;
 }
 
-body{
+body {
   font-family: 'Inconsolata', monospace;
   margin: 0rem;
 }
 
-.nav-bar{
-  
+.nav-bar {
+
   width: 100%;
-  height: 17vh;
+  height: 10rem;
   background-color: var(--primary-color);
   border-bottom-left-radius: 1rem;
 }
-.nav-pills{
+
+.nav-pills {
   list-style: none;
+  font-size: 1.5rem;
   text-align: right;
 }
-.nav-pill-items{
+
+.nav-pill-items {
   font-size: 1.2rem;
-  display:inline;
+  display: inline;
   font-weight: bold;
   padding: 0rem 1.5rem 1.5rem 0rem;
 }
-.link{
+
+.link {
   padding: 0rem 1rem 1rem 0rem;
   color: var(--secondary-color);
   text-decoration: none;
 }
 
-.nav-heading{
+.nav-heading {
   font-size: 1.5rem;
   padding: 1.5rem;
   font-weight: bold;
@@ -47,19 +51,22 @@ body{
   color: var(--secondary-color);
   font-size: 1.6rem;
 }
-h1{
+
+h1 {
   display: block;
   text-align: center;
   padding-top: 3rem;
-  
+
 }
- label{
-   font-size: 2rem;
+
+label {
+  font-size: 2rem;
   font-weight: bold;
   padding-top: 4rem;
   margin: auto;
 }
-input{
+
+input {
   padding: 16px 8px;
   font-size: 1.2rem;
   width: 60%;
@@ -70,76 +77,91 @@ input{
   margin-top: 2rem;
 }
 
-input:focus{
+input:focus {
   outline: 1px solid var(--secondary-color);
 }
-.button{
+
+.button {
   padding-top: 2rem;
   margin: auto;
 }
-.check{
+
+.check {
   cursor: pointer;
   font-size: 1.2rem;
   background-color: var(--primary-color);
-  padding: 0.8rem;
+  padding: 1rem;
   border-radius: 1rem;
   border: 1px solid var(--secondary-color);
   color: var(--secondary-color);
   font-weight: bold;
 }
-.clear{
-    margin-left: 2rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    background-color: whitesmoke;
-    padding: 0.8rem;
-    border-radius: 1rem;
-    border: 1px solid var(--secondary-color);
-    color: var(--secondary-color);
-    font-weight: bold;
+
+.check:hover {
+  background-color: whitesmoke;
 }
-.output{
+
+.clear {
+  margin-left: 2rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.output {
+  text-align: center;
   padding-top: 2rem;
   color: var(--error-color);
   font-size: 1.6rem;
   margin: auto;
 }
-.error{
+
+.error {
+  font-weight: bold;
   padding-top: 2rem;
   color: var(--error-color);
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: auto;
 }
 
-.footer{
+.footer {
   margin-top: 9rem;
   margin-right: 3rem;
   width: 100%;
-  height: 21vh;
+  height: 11rem;
   background-color: var(--primary-color);
   border-top-right-radius: 1rem;
 }
-.footer-header{
+
+.footer-header {
   text-align: center;
-  padding: 1.5rem 0rem 0rem ;
+  padding: 1.5rem 0rem 0rem;
   font-weight: bolder;
   font-size: 1.5rem;
   color: var(--secondary-color);
 }
 
-.footer-pills{
+.footer-pills {
   list-style: none;
   text-align: center;
 }
-.footer-items{
+
+.footer-items {
   display: inline;
   padding: 0rem 2.6rem 0rem 0rem;
 }
-.privacy{
+
+.privacy {
   text-align: center;
   color: var(--secondary-color);
 }
-.name{
+
+.name {
   color: var(--secondary-color);
 }
